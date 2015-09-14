@@ -10,8 +10,6 @@ In the code below, the close() and open() methods, which both call this.setState
 class ExampleModal extends React.Component {
   constructor(props) {
     super(props);
-    var that = this;
-    this.state = {showModal: false};
   }
   close() {
     this.setState({ showModal: false });
@@ -29,7 +27,6 @@ The code below will work correctly because each method's this is manually bound 
 class ExampleModal extends React.Component {
   constructor(props) {
     super(props);
-    var that = this;
     this.close = this.close.bind(this);
     this.open = this.open.bind(this);
   }
@@ -58,7 +55,6 @@ import {es6BindAll} from "es6bindall";
 class ExampleModal extends React.Component {
   constructor(props) {
     super(props);
-    var that = this;
     es6BindAll(this, ["open", "close"]);
   }
   close() {
