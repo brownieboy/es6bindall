@@ -49,7 +49,7 @@ That's a massive pain to remember to bind methods manually, not to mention a lot
 es6BindAll is a simple function that binds a supplied list of method names to a supplied context (this).  It takes two arguments:
 
 1. The context (i.e an object) to which the methods are to be bound.
-2. Ad array of method names.  Those methods must exist in the current component/class, i.e. they can't be external functions.
+2. An array of method names.  Those methods must exist in the current component/class, i.e. they can't be external functions.
 
 Example use:
 ```javascript
