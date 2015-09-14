@@ -66,3 +66,8 @@ class ExampleModal extends React.Component {
   }
   ```
   
+  ##Browser Support
+Internet Explorer 9 and updwards, plus all good browsers (i.e. any browser _not_ called Internet Explorer).
+
+
+

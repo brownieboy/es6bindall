@@ -9,7 +9,8 @@
   },
   "keywords": [
     "ES6",
-    "ReactJS"
+    "ReactJS",
+    "react-component"
   ],
   "author": "Michael Brown <brownieboy@gmail.com>",
   "license": "ISC"
