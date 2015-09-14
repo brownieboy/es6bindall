@@ -6,7 +6,7 @@ Created this to get around a problem where an ES6 class method's context is not 
 
 ##Problem Code
 In the code below, the close() and open() methods, which both call this.setState() will fail.  This is because those method's this oject is not autobound to the component's context, so this.setState() simply doesn't exist.
-```
+```javascript
 class ExampleModal extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +25,7 @@ class ExampleModal extends React.Component {
 ##Workaround 1 - Bind all methods manually
 The code below will work correctly because each method's this is manually bound to the component's context by a separate .bind() call in the component's constructor.
 
-```  
+```javascript
 class ExampleModal extends React.Component {
   constructor(props) {
     super(props);
@@ -42,15 +42,16 @@ class ExampleModal extends React.Component {
   }
   ```
 
-  That's a massive pain to remember to bind methods manually, not to mention a lot of extra lines of code in your constructor.  And so...
+That's a massive pain to remember to bind methods manually, not to mention a lot of extra lines of code in your constructor.  And so...
 
 
 ##Workaround 3 - Bind all methods manually with es6bindAll
-es6BindAll is a simple function that takes two arguments:
+es6BindAll is a simple function that binds a supplied list of method names to a supplied context (this).  It takes two arguments:
 1. The context (i.e an object) to which the methods are to be bound.
 2. And array of method names.  Those methods must exist in the current component/class, i.e. they can't be external functions.
 
-```
+Example use:
+```javascript
 import {es6BindAll} from "es6bindall";
 
 class ExampleModal extends React.Component {
