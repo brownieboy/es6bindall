@@ -1,6 +1,6 @@
 # es6bindall
 
-Simple function to bind multiple methods to an ES6 class's 'this' oject. Intended as an equivalent to Backbone's bindAll() method.
+Simple function to bind multiple methods to an ES6 class's 'this' object. Intended as an equivalent to Backbone's bindAll() method.
 
 Created this to get around a problem where an ES6 class method's context is not autobound to the class's object.  This is a particular point of pain for ReactJS when using this syntax.  (ReactJS's previous .createClass() syntax _did_ autobind a component's methods to the component's own context.)
 
@@ -67,7 +67,7 @@ class ExampleModal extends React.Component {
   ```
   
   ##Browser Support
-Internet Explorer 9 and updwards, plus all good browsers (i.e. any browser _not_ called Internet Explorer).
+Internet Explorer 9 and upwards, plus all good browsers (i.e. any browser _not_ called Internet Explorer).
 
 
 
