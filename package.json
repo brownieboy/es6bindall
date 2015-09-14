@@ -1,0 +1,16 @@
+{
+  "name": "es6bindall",
+  "version": "0.0.1",
+  "description": "Simple function to bind multiple methods to an ES6 class's 'this' oject. Intended as an equivalent to Backbone's bindAll() method.",
+  "main": "index.js",
+  "repository": "https://github.com/brownieboy/es6bindall.git",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ES6",
+    "ReactJS"
+  ],
+  "author": "Michael Brown <brownieboy@gmail.com>",
+  "license": "ISC"
+}
