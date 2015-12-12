@@ -50,7 +50,7 @@ es6BindAll is a simple function that binds a supplied list of method names to a 
 
 Example use:
 ```javascript
-import {es6BindAll} from "es6bindall";
+import es6BindAll from "es6bindall";  // import {es6BindAll} from "es6bindall"; will also work
 
 class ExampleModal extends React.Component {
   constructor(props) {
