@@ -70,4 +70,13 @@ class ExampleModal extends React.Component {
 Internet Explorer 9 and upwards, plus all good browsers (i.e. any browser _not_ called Internet Explorer).
 
 
+##Development Instructions
+There's not much source code to change, but if you must!
+
+First run `npm install` to update the dev dependencies, basically the Babel command line tool and its dependences.
+
+The source code is in the src/es6bindall.js file, and is in an es6(ish) kind of format.  Run `npm run build` to have Babel transpile the code to es5 format to the project's main file, i.e. index.js in the root.
+
+Alternatively, you can run `npm run start` to have Babel watch the src/es6bindall.js file for changes.  Babel will then update index.js automatically, whenever you save a change to src/es6bindall.js. 
+
 
