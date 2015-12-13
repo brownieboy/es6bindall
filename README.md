@@ -50,7 +50,7 @@ es6BindAll is a simple function that binds a supplied list of method names to a 
 
 Example use:
 ```javascript
-import es6BindAll from "es6bindall";  // import {es6BindAll} from "es6bindall"; will also work
+import es6BindAll from "es6bindall";  // 'import {es6BindAll} from "es6bindall"' will also work
 
 class ExampleModal extends React.Component {
   constructor(props) {
@@ -77,6 +77,11 @@ First run `npm install` to update the dev dependencies, basically the Babel comm
 
 The source code is in the src/es6bindall.js file, and is in an es6(ish) kind of format.  Run `npm run build` to have Babel transpile the code to es5 format to the project's main file, i.e. index.js in the root.
 
-Alternatively, you can run `npm run start` to have Babel watch the src/es6bindall.js file for changes.  Babel will then update index.js automatically, whenever you save a change to src/es6bindall.js. 
+Alternatively, you can run `npm run start` to have Babel watch the src/es6bindall.js file for changes.  Babel will then update index.js automatically, whenever you save a change to src/es6bindall.js.
+
+##Tests
+Tests are built with mocha + chai.  Run with `npm run test`.
+
+Tests check that a test method remains bound to its parent ojbect after its been bound using es6BindAll (i.e. .bind() under the covers), even if the context is being overriden by a .call().  (.bind trumps .call() it seems.)
 
 

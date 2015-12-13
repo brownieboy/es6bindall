@@ -1,56 +1,37 @@
-var expect = require('expect');
+var chai = require("chai");
+var expect = chai.expect;
 var es6BindAll = require('../index.js');
 
 
-console.log('typeof es6BindAll = ' + typeof es6BindAll);
-
-var globalThis;
+// Control tests.
 
 var boundObject1 = {
     name: "boundObject1",
-    testFunc: (function() {
+    testFunc: function() {
         console.log("running.., this.name = " + this.name);
-    	globalThis = this;
-    }())
+        return this;
+    }
 };
-
-console.log("globalThis = " + globalThis);
-
-describe('Control test 1', function() {
-    it('should be undefined', function() {
-        expect(globalThis)
-            .notToBe(boundObject1)
-    })
-})
 
 var boundObject2 = {
-    name: "boundObject2",
-    binder: (function(){
-        this.testFunc = this.testFunc.bind(this);
-    }()),
-    testFunc: (function() {
-        console.log("running.., this.name = " + this.name);
-        globalThis = this;
-    }())
+    name: "boundObject2"
 };
 
-describe('Control test 2', function() {
-    it('should be boundObject2', function() {
-        expect(globalThis)
-            .toBe(boundObject2)
+
+// method should be bound to boundObject1, because that's the context under which we're
+// calling it, i.e. boundObject1.testFunc()
+describe('Control test 1', function() {
+    it('should equal boundObject1', function() {
+        expect(boundObject1.testFunc())
+            .to.equal(boundObject1)
     })
 })
 
-
-// describe('Control test 2', function() {
-//     it('should exist and be a function', function() {
-//         expect(boundObject2.testFunc)
-//             .toExist()
-//             .toBeAn(Function)
-//     })
-//     it('should not be bound to default obj (itself) due to invocation', function() {
-//         expect(boundObject2.testFunc())
-//             .toBe(boundObject2)
-//     })
-// })
-
+// method should be bound to boundObject2, because we're overriding its context with
+// the .call() method.
+describe('Control test 2', function() {
+    it('should equal boundObject2, using .call()', function() {
+        expect(boundObject1.testFunc.call(boundObject2))
+            .to.equal(boundObject2)
+    })
+})
