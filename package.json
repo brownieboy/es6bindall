@@ -7,7 +7,8 @@
   "scripts": {
     "build": "babel --presets es2015 src/es6bindall.js --out-file index.js",
     "start": "babel --watch --presets es2015 src/es6bindall.js --out-file index.js",
-    "test": "./node_modules/.bin/mocha ./tests"
+    "test": "./node_modules/.bin/mocha ./tests",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "ES6",
