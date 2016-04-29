@@ -95,6 +95,6 @@ Alternatively, you can run `npm run start` to have Babel watch the src/es6bindal
 ##Tests
 Tests are built with mocha + chai.  Run with `npm run test`.
 
-Tests check that a test method remains bound to its parent ojbect after its been bound using es6BindAll (i.e. .bind() under the covers), even if the context is being overridden by a .call().  (.bind trumps .call() it seems.)
+Tests check that a test method remains bound to its parent object after its been bound using es6BindAll (i.e. .bind() under the covers), even if the context is being overridden by a .call().  (.bind trumps .call() it seems.)
 
 
