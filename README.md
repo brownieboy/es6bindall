@@ -20,7 +20,20 @@ class ExampleModal extends React.Component {
   }
   ```
 
-##Workaround 1 - Bind all methods manually
+##Workaround 1 - Bind method a call time
+One workaround that I've seen suggests that you should bind the method when you're calling it, as shown below:
+```javascript
+// Example take from http://egorsmirnov.me/2015/08/16/react-and-es6-part3.html
+export default class CartItem extends React.Component {
+    render() {
+        <button onClick={this.increaseQty.bind(this)} className="button success">+</button>
+    }
+}
+```
+This certainly gives you the most flexibility, since you can call the method as either bound or unbound should you wish.  Still, it's a massive pain in the rear to remeber to do this every time you call your method.
+
+
+##Workaround 2 - Bind all methods manually
 The code below will work correctly because each method's ```this``` is manually bound to the component's context by a separate ```.bind()``` call in the component's constructor.
 
 ```javascript
@@ -39,11 +52,11 @@ class ExampleModal extends React.Component {
   }
   ```
 
-That's a massive pain to remember to bind methods manually, not to mention a lot of extra lines of code in your constructor.  And so...
+While an improvement over Workaround 1, there's still a lot of code in your constructor just to bind your methods.  And so...
 
 
 ##Workaround 3 - Bind all methods manually with es6bindAll
-es6BindAll is a simple function that binds a supplied list of method names to a supplied context (```this```).  It takes two arguments:
+...and so, I borrowed an idea from Backbone, which has [a _.bindAll() function](http://underscorejs.org/#bindAll) (actually part of Underscore), which you can call in your Backbone class constructors to bind its methods to itself.  From that, I've created es6BindAll as a simple function that binds a supplied list of method names to a supplied context (```this```).  It takes two arguments:
 
 1. The context (i.e an object) to which the methods are to be bound.
 2. An array of method names.  Those methods must exist in the current component/class, i.e. they can't be external functions.
