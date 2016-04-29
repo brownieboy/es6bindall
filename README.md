@@ -33,7 +33,7 @@ export default class CartItem extends React.Component {
 This certainly gives you the most flexibility, since you can call the method as either bound or unbound should you wish.  Still, it's a massive pain in the rear to remeber to do this every time you call your method.
 
 
-##Workaround 2 - Bind all methods manually
+##Workaround 2 - Bind all methods manually in constructor
 The code below will work correctly because each method's ```this``` is manually bound to the component's context by a separate ```.bind()``` call in the component's constructor.
 
 ```javascript
@@ -55,7 +55,7 @@ class ExampleModal extends React.Component {
 While an improvement over Workaround 1, there's still a lot of code in your constructor just to bind your methods.  And so...
 
 
-##Workaround 3 - Bind all methods manually with es6bindAll
+##Workaround 3 - Bind all methods manually in constructor with es6bindAll
 ...and so, I borrowed an idea from Backbone, which has [a _.bindAll() function](http://underscorejs.org/#bindAll) (actually part of Underscore), which you can call in your Backbone class constructors to bind its methods to itself.  From that, I've created es6BindAll as a simple function that binds a supplied list of method names to a supplied context (```this```).  It takes two arguments:
 
 1. The context (i.e an object) to which the methods are to be bound.
