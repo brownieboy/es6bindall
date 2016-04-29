@@ -20,7 +20,7 @@ class ExampleModal extends React.Component {
   }
   ```
 
-##Workaround 1 - Bind method a call time
+##Workaround 1 - Bind method at call time
 One workaround that I've seen suggests that you should bind the method when you're calling it, as shown below:
 ```javascript
 // Example take from http://egorsmirnov.me/2015/08/16/react-and-es6-part3.html
@@ -52,11 +52,11 @@ class ExampleModal extends React.Component {
   }
   ```
 
-While an improvement over Workaround 1, there's still a lot of code in your constructor just to bind your methods.  And so...
+While an improvement over Workaround 1, that's still a lot of code to add to your constructor just to bind your methods.  And so...
 
 
 ##Workaround 3 - Bind all methods manually in constructor with es6bindAll
-...and so, I borrowed an idea from Backbone, which has [a _.bindAll() function](http://underscorejs.org/#bindAll) (actually part of Underscore), which you can call in your Backbone class constructors to bind its methods to itself.  From that, I've created es6BindAll as a simple function that binds a supplied list of method names to a supplied context (```this```).  It takes two arguments:
+...and so, I borrowed an idea from Backbone, which has [a _.bindAll() function](http://underscorejs.org/#bindAll) (actually part of Underscore).  You can generally call this in your Backbone class constructors in order to bind the methods to the class object.  Following that idea, I've created es6BindAll as a simple function that binds a supplied list of method names to a supplied context (```this```).  It takes two arguments:
 
 1. The context (i.e an object) to which the methods are to be bound.
 2. An array of method names.  Those methods must exist in the current component/class, i.e. they can't be external functions.
@@ -78,8 +78,8 @@ class ExampleModal extends React.Component {
     this.setState({ showModal: true });
   }
   ```
-  
-  ##Browser Support
+
+##Browser Support
 Internet Explorer 9 and upwards, plus all good browsers (i.e. any browser _not_ called Internet Explorer).
 
 

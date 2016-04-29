@@ -1,6 +1,6 @@
 {
   "name": "es6bindall",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Simple function to bind multiple methods to an ES6 class's 'this' object. Intended as an equivalent to Backbone's bindAll() method.",
   "main": "index.js",
   "repository": "https://github.com/brownieboy/es6bindall.git",
@@ -18,10 +18,10 @@
   "author": "Michael Brown <brownieboy@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "babel": "^6.3.13",
-    "babel-cli": "^6.3.17",
-    "babel-preset-es2015": "^6.3.13",
-    "chai": "^3.4.1",
-    "mocha": "^2.3.4"
+    "babel": "^6",
+    "babel-cli": "^6",
+    "babel-preset-es2015": "^6",
+    "chai": "^3",
+    "mocha": "^2"
   }
 }
