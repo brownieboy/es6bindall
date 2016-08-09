@@ -79,8 +79,11 @@ class ExampleModal extends React.Component {
   }
   ```
 
-##Browser Support
+##Browser/Environment Support
 Internet Explorer 9 and upwards, plus all good browsers (i.e. any browser _not_ called Internet Explorer).
+
+The
+
 
 
 ##Development Instructions
@@ -97,4 +100,8 @@ Tests are built with mocha + chai.  Run with `npm run test`.
 
 Tests check that a test method remains bound to its parent object after its been bound using es6BindAll (i.e. .bind() under the covers), even if the context is being overridden by a .call().  (.bind trumps .call() it seems.)
 
+
+##Update History
+Version 0.0.6: 6 August 2016.
+* Fixed issue where the function no longer being exported correctly in NodeJS (and possibly elsewhere).  This was caused by Babel 6 no longer exporting a default `module-exports`.  Fixed this by adding the [babel plugin add-module-exports](https://www.npmjs.com/package/babel-plugin-add-module-exports) to the build process.  See there for more details of the issue.
 
