@@ -4,5 +4,4 @@ function es6BindAll(context, methodNames) {
   });
 };
 
-export {es6BindAll};
 export default es6BindAll;
