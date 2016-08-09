@@ -1,7 +1,7 @@
 
 var chai = require("chai");
 var expect = chai.expect;
-var es6BindAll = require("../index.js");
+var es6BindAll = require("../");
 
 
 var boundObject1 = {
