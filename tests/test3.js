@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 
 var chai = require("chai");
 var expect = chai.expect;
@@ -17,15 +18,17 @@ var boundObject2 = {
 };
 
 
+es6BindAll(boundObject1, "testFunc");
 
-// method should be bound to boundObject1, because that"s the context under which we"re
-// calling it, i.e. boundObject1.testFunc(), plus we"ve bound it with es6BindAll anyway
-describe("Error trapping text", function() {
-    es6BindAll(boundObject1, ["nonExistentFunc"]);
 
-    it("should equal boundObject1 after binding", function() {
-        expect(boundObject1.testFunc())
+// method should be bound to boundObject1, because we"ve bound it with es6BindAll.  Even
+// though we"re overriding the context to boundObject2 with the .call() method, our
+// es6BindAll call (which is doing a .bind() under the covers) overrides that .call()
+// every time.  A .bind() can only be done on a method once and that .bind() is final.
+describe("Bound test final to single method name", function() {
+    it("should equal boundObject1, using .call() to bind to boundObject2", function() {
+        expect(boundObject1.testFunc.call(boundObject2))
             .to.equal(boundObject1);
-    })
-})
+    });
+});
 

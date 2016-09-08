@@ -63,7 +63,7 @@ While an improvement over Workaround 1, that's still a lot of code to add to you
 
 Example use:
 ```javascript
-import es6BindAll from "es6bindall";  // 'import {es6BindAll} from "es6bindall"' will also work
+import es6BindAll from "es6bindall";
 
 class ExampleModal extends React.Component {
   constructor(props) {
@@ -82,9 +82,6 @@ class ExampleModal extends React.Component {
 ##Browser/Environment Support
 Internet Explorer 9 and upwards, plus all good browsers (i.e. any browser _not_ called Internet Explorer).
 
-The
-
-
 
 ##Development Instructions
 There's not much source code to change, but if you must!
@@ -102,6 +99,10 @@ Tests check that a test method remains bound to its parent object after its been
 
 
 ##Update History
+Version 0.0.7: 8 Sept 2016
+* Added error check for non-existent methods
+* You can supply a single string method as well as an array
+
 Version 0.0.6: 6 August 2016.
 * Fixed issue where the function no longer being exported correctly in NodeJS (and possibly elsewhere).  This was caused by Babel 6 no longer exporting a default `module-exports`.  Fixed this by adding the [babel plugin add-module-exports](https://www.npmjs.com/package/babel-plugin-add-module-exports) to the build process.  See there for more details of the issue.
 

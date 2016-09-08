@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 
 var chai = require("chai");
 var expect = chai.expect;
@@ -16,7 +17,6 @@ var boundObject2 = {
     name: "boundObject2"
 };
 
-
 es6BindAll(boundObject1, ["testFunc"]);
 
 // method should be bound to boundObject1, because that"s the context under which we"re
@@ -25,8 +25,8 @@ describe("Bound control test 1", function() {
     it("should equal boundObject1 after binding", function() {
         expect(boundObject1.testFunc())
             .to.equal(boundObject1);
-    })
-})
+    });
+});
 
 // method should be bound to boundObject1, because we"ve bound it with es6BindAll.  Even
 // though we"re overriding the context to boundObject2 with the .call() method, our
@@ -37,5 +37,5 @@ describe("Bound test final", function() {
         expect(boundObject1.testFunc.call(boundObject2))
             .to.equal(boundObject1);
     });
-})
+});
 
