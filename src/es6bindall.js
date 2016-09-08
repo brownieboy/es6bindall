@@ -1,6 +1,10 @@
 function es6BindAll(context, methodNames) {
   methodNames.map(function(methodName) {
-    context[methodName] = context[methodName].bind(context);
+  	try
+    	context[methodName] = context[methodName].bind(context);
+	} catch(e) {
+		throw "Cannot bind method " + methodName + " to the supplied context. Error " + e;
+	}
   });
 }
 
