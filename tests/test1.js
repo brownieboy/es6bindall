@@ -6,7 +6,6 @@ test.createStream()
   .pipe(faucet())
   .pipe(process.stdout);
 
-
 var boundObject1 = {
   name: "boundObject1",
   testFunc: function() {
@@ -39,6 +38,12 @@ test("testFunc() method should not be bound to boundObject1 via .call()", functi
 });
 
 
+test("attempting to bind a non-existent method throws an error", function(t) {
+  t.throws(() => es6BindAll(boundObject1, ["iDontExist"]), /Cannot bind method iDontExist to the supplied context, boundObject1/);
+  t.end();
+});
+
+
 // method should be bound to boundObject1, because that"s the context under which we"re
 // calling it, i.e. boundObject1.testFunc(), plus we"ve bound it with es6BindAll anyway
 test("testFunc() method should be bound to boundObject1 after es6bindall call", function(t) {
@@ -66,7 +71,5 @@ test("testFunc() method should still be bound to boundObject1, even when binding
 });
 
 
-test("attempting to bind a non-existent method throws an error", function(t) {
-  t.throws(() => es6BindAll(boundObject1, ["iDontExist"]), /Cannot bind method iDontExist to the supplied context, boundObject1/);
-  t.end();
-});
+
+

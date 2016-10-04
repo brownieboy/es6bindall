@@ -99,6 +99,10 @@ Tests check that a test method remains bound to its parent object after its been
 
 
 ##Update History
+Version 0.0.8: 4 Oct 2016
+* Changed test suite from Mocha/Chai to Tape
+* Added test for method name supplied as a string
+
 Version 0.0.7: 8 Sept 2016
 * Added error check for non-existent methods
 * You can supply a single string method as well as an array
