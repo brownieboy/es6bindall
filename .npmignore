@@ -1,6 +1,7 @@
 backup
 dist
 docs
+tests
 src
 *.bconf
 .babelrc

@@ -19,20 +19,22 @@
   /**
    * es6BindAll Binds methods to their parent contexts, e.g. and ES6 class
    * @param  {class} context     The context to which the methods will be bound.  Normally an ES6 class.
-   * @param  {array} methodNames An Array of methods to bind to the context.
+   * @param  {array} methods An Array of methods to bind to the context.
    * @return {null}             Function returns nothing.
    */
-  function es6BindAll(context, methodNames) {
-    if (!Array.isArray(methodNames)) {
-      methodNames = [methodNames];
+  function es6BindAll(context) {
+    for (var _len = arguments.length, methods = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      methods[_key - 1] = arguments[_key];
     }
 
-    methodNames.map(function (methodName) {
+    methods.map(function (method) {
       try {
-        context[methodName] = context[methodName].bind(context);
+        context[method] = context[method].bind(context);
       } catch (e) {
         var cName = context.name ? ", " + context.name : "";
-        throw new Error("Cannot bind method " + methodName + " to the supplied context" + cName + ".");
+        var mName = typeof method === "function" ? method.name : method;
+        console.log("Error: " + e);
+        throw new Error("Cannot bind method " + mName + " to the supplied context" + cName);
       }
       return null;
     });
