@@ -22,12 +22,12 @@
    * @param  {array} methods An Array of methods to bind to the context.
    * @return {null}             Function returns nothing.
    */
-  function es6BindAll(context) {
-    for (var _len = arguments.length, methods = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      methods[_key - 1] = arguments[_key];
-    }
 
-    methods.map(function (method) {
+  function es6BindAll(context, methodNames) {
+    if (!Array.isArray(methodNames)) {
+      methodNames = [methodNames];
+    }
+    methodNames.map(function (method) {
       try {
         context[method] = context[method].bind(context);
       } catch (e) {

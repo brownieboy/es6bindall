@@ -99,6 +99,9 @@ Tests check that a test method remains bound to its parent object after its been
 
 
 ##Update History
+Version 0.0.9: 26 Oct 2016
+Fixed regression bug with Array handling.  Returned to previous array handling code.
+
 Version 0.0.8: 4 Oct 2016
 * Changed test suite from Mocha/Chai to Tape
 * Added test for method name supplied as a string

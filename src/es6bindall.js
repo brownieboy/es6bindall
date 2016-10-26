@@ -4,8 +4,12 @@
  * @param  {array} methods An Array of methods to bind to the context.
  * @return {null}             Function returns nothing.
  */
-function es6BindAll(context, ...methods) {
-  methods.map((method) => {
+
+function es6BindAll(context, methodNames) {
+  if (!Array.isArray(methodNames)) {
+    methodNames = [methodNames];
+  }
+  methodNames.map((method) => {
     try {
       context[method] = context[method].bind(context);
     } catch (e) {
