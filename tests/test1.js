@@ -1,12 +1,14 @@
-var test = require("tape");
-var faucet = require("faucet");
-var es6BindAll = require("../"); // index.js
+/* eslint prefer-arrow-callback: 0 object-shorthand:0 */
+
+const test = require("tape");
+const faucet = require("faucet");
+const es6BindAll = require("../"); // index.js
 
 test.createStream()
   .pipe(faucet())
   .pipe(process.stdout);
 
-var boundObject1 = {
+const boundObject1 = {
   name: "boundObject1",
   testFunc: function() {
     return this;
@@ -16,7 +18,7 @@ var boundObject1 = {
   }
 };
 
-var boundObject2 = {
+const boundObject2 = {
   name: "boundObject2"
 };
 
